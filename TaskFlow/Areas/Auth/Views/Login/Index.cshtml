@@ -1,0 +1,158 @@
+@using System.Globalization
+@model LoginViewModel
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+}
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            font-family: "Poppins", "Tajawal", sans-serif;
+            background-color: #f7f9fb;
+        }
+        .auth-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(120deg, rgba(15,113,121,0.85), rgba(8,24,44,0.9));
+        }
+        .auth-card {
+            background-color: #fff;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        .auth-header {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+        .auth-header h3 {
+            color: #0f7179;
+            font-weight: 600;
+            margin-bottom: .3rem;
+        }
+        .auth-header p {
+            color: #555;
+            font-size: 0.95rem;
+            opacity: .85;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #0f7179;
+        }
+        .form-control {
+            height: 48px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            padding-left: 14px;
+        }
+        .form-control:focus {
+            border-color: #0f7179;
+            box-shadow: 0 0 0 0.15rem rgba(15,113,121,0.25);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #0f7179, #0b4d52);
+            border: none;
+            border-radius: 10px;
+            height: 48px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .btn-primary:hover {
+            filter: brightness(1.05);
+        }
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        .auth-footer a {
+            color: #0f7179;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        .lang-switch {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 999;
+        }
+        html[dir="rtl"] .lang-switch {
+            right: auto;
+            left: 1rem;
+        }
+        .lang-switch .btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            border-radius: 10px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
+        .lang-switch .btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        @@media (max-width: 768px) {
+            .auth-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+}
+
+<section class="auth-wrap" dir="@(culture == "ar" ? "rtl" : "ltr")">
+    <div class="lang-switch">
+        <a asp-area="" asp-controller="Language" asp-action="Set"
+           asp-route-culture="@(culture == "ar" ? "en" : "ar")"
+           asp-route-returnUrl="@Context.Request.Path"
+           class="btn">
+            <i class="bi bi-translate"></i> @(culture == "ar" ? "English" : "العربية")
+        </a>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h3>TaskFlow</h3>
+                        <p>@AuthResource.Login_Title</p>
+                    </div>
+
+                    <form asp-area="Auth" asp-controller="Login" asp-action="Index" method="post" novalidate>
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">@AuthResource.Login_Email</label>
+                            <input asp-for="Email" class="form-control" type="email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Password" class="form-label">@AuthResource.Login_Password</label>
+                            <input asp-for="Password" class="form-control" type="password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">@AuthResource.Login_Button</button>
+                    </form>
+
+                    <div class="auth-footer">
+                        @AuthResource.SignUp_HaveAccount
+                        <a asp-area="Auth" asp-controller="SignUp" asp-action="Index">@AuthResource.SignUp_LoginLink</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

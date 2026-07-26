@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Title_Display" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Title_Required" xml:space="preserve">
+    <value>Please fill in the Title</value>
+  </data>
+  <data name="Title_MaxLength" xml:space="preserve">
+    <value>Title cannot exceed 200 characters</value>
+  </data>
+  <data name="Description_Display" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Description_Required" xml:space="preserve">
+    <value>Please fill in the Description</value>
+  </data>
+  <data name="Description_MaxLength" xml:space="preserve">
+    <value>Description cannot exceed 2000 characters</value>
+  </data>
+  <data name="DueDate_Display" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="Priority_Display" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Priority_Required" xml:space="preserve">
+    <value>Please fill in the Priority</value>
+  </data>
+  <data name="Priority_Range" xml:space="preserve">
+    <value>Priority must be between 1 and 5</value>
+  </data>
+  <data name="IsCompleted_Display" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Project_Display" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Category_Display" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Status_Display" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Status_Required" xml:space="preserve">
+    <value>Please fill in the Status</value>
+  </data>
+  <data name="Email_Display" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="Email_Required" xml:space="preserve">
+    <value>Please fill in the Email</value>
+  </data>
+  <data name="Email_Invalid" xml:space="preserve">
+    <value>Please enter a valid email address</value>
+  </data>
+  <data name="Password_Display" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Password_Required" xml:space="preserve">
+    <value>Please fill in the Password</value>
+  </data>
+  <data name="Password_MinLength" xml:space="preserve">
+    <value>Minimum is 8 characters</value>
+  </data>
+  <data name="Name_Display" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Name_Required" xml:space="preserve">
+    <value>Please fill in the Name</value>
+  </data>
+  <data name="Name_MaxLength" xml:space="preserve">
+    <value>Name cannot exceed 100 characters</value>
+  </data>
+  <data name="NameAr_Display" xml:space="preserve">
+    <value>Name (Arabic)</value>
+  </data>
+  <data name="NameAr_Required" xml:space="preserve">
+    <value>Please fill in the Name (Arabic)</value>
+  </data>
+  <data name="NameAr_MaxLength" xml:space="preserve">
+    <value>Name (Arabic) cannot exceed 100 characters</value>
+  </data>
+  <data name="ProjectName_Display" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
+  <data name="ProjectName_Required" xml:space="preserve">
+    <value>Please fill in the Project Name</value>
+  </data>
+  <data name="ProjectName_MaxLength" xml:space="preserve">
+    <value>Project Name cannot exceed 100 characters</value>
+  </data>
+  <data name="CategoryName_Display" xml:space="preserve">
+    <value>Category Name</value>
+  </data>
+  <data name="CategoryName_Required" xml:space="preserve">
+    <value>Please fill in the Category Name</value>
+  </data>
+  <data name="CategoryName_MaxLength" xml:space="preserve">
+    <value>Category Name cannot exceed 100 characters</value>
+  </data>
+  <data name="Color_Display" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Approved_Display" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="IsActive_Display" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="CreationDate_Display" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="Required_Field" xml:space="preserve">
+    <value>Please fill in the Field</value>
+  </data>
+  <data name="StatusNameEn_Display" xml:space="preserve">
+    <value>Status Name (English)</value>
+  </data>
+  <data name="StatusNameEn_Required" xml:space="preserve">
+    <value>Please fill in the Status name in English</value>
+  </data>
+  <data name="StatusNameEn_MaxLength" xml:space="preserve">
+    <value>Status name in English cannot exceed 20 characters</value>
+  </data>
+  <data name="StatusNameAr_Display" xml:space="preserve">
+    <value>Status Name (Arabic)</value>
+  </data>
+  <data name="StatusNameAr_Required" xml:space="preserve">
+    <value>Please fill in the Status name in Arabic</value>
+  </data>
+  <data name="StatusNameAr_MaxLength" xml:space="preserve">
+    <value>Status name in Arabic cannot exceed 20 characters</value>
+  </data>
+  <data name="RoleNameEn_Display" xml:space="preserve">
+    <value>Role Name (English)</value>
+  </data>
+  <data name="RoleNameEn_Required" xml:space="preserve">
+    <value>Please fill in the Role name in English</value>
+  </data>
+  <data name="RoleNameEn_MaxLength" xml:space="preserve">
+    <value>Role name in English cannot exceed 25 characters</value>
+  </data>
+  <data name="RoleNameAr_Display" xml:space="preserve">
+    <value>Role Name (Arabic)</value>
+  </data>
+  <data name="RoleNameAr_Required" xml:space="preserve">
+    <value>Please fill in the Role name in Arabic</value>
+  </data>
+  <data name="RoleNameAr_MaxLength" xml:space="preserve">
+    <value>Role name in Arabic cannot exceed 25 characters</value>
+  </data>
+  <data name="User_Role_NameRequired" xml:space="preserve">
+    <value>Please fill in the RoleName</value>
+  </data>
+  <data name="User_Role_NameRequiredAr" xml:space="preserve">
+    <value>Please fill in the RoleName In Arabic</value>
+  </data>
+  <data name="TaskCount_Display" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="ConfirmPassword_Display" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="ConfirmPassword_NotMatch" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="CompanyNameEn_EnglishOnly" xml:space="preserve">
+    <value>Please enter English letters only</value>
+  </data>
+  <data name="CompanyNameAr_ArabicOnly" xml:space="preserve">
+    <value>Please enter arabic letters only</value>
+  </data>
+</root>

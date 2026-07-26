@@ -1,0 +1,79 @@
+@model ProjectEditVM
+@{
+    ViewData["Title"] = DashboardResource.EditProject;
+}
+<div class="container-fluid py-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white border-bottom">
+            <h5 class="mb-0">@DashboardResource.EditProject</h5>
+        </div>
+        <div class="card-body">
+            <form asp-area="Dashboard" asp-controller="Project" asp-action="Edit" method="post" novalidate>
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Guid" />
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Color" class="form-label"></label>
+                        <input asp-for="Color" class="form-control" type="color" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="IsActive" class="form-label"></label>
+                    <select asp-for="IsActive" class="form-select">
+                        <option value="true">@DashboardResource.Active</option>
+                        <option value="false">@DashboardResource.Inactive</option>
+                    </select>
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check2"></i> @DashboardResource.Save
+                    </button>
+                    <a asp-area="Dashboard" asp-controller="Project" asp-action="Index" class="btn btn-outline-secondary ms-2">@DashboardResource.Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const swalTexts = {
+            areYouSure: '@Html.Raw(Json.Serialize(DashboardResource.ConfirmUpdateStatus))',
+            yesUpdate: '@Html.Raw(Json.Serialize(DashboardResource.YesUpdateStatus))',
+            cancel: '@Html.Raw(Json.Serialize(DashboardResource.Cancel))'
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: swalTexts.areYouSure,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#0d6efd',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: swalTexts.yesUpdate,
+                        cancelButtonText: swalTexts.cancel
+                    }).then(function (result) {
+                        if (result.isConfirmed) form.submit();
+                    });
+                });
+            }
+        });
+    </script>
+}

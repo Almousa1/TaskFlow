@@ -1,0 +1,96 @@
+@model IEnumerable<TodoItemListItemVM>
+@{ ViewData["Title"] = DashboardResource.ManageTodos; }
+
+<div class="fade-up">
+    <div class="section-hd">
+        <h5 class="title"><i class="bi bi-list-task" style="color:var(--tf-accent);"></i> @DashboardResource.TodoList</h5>
+        <div class="q-acts">
+            <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddTodo</a>
+        </div>
+    </div>
+
+    @{ var st = Context.Request.Query["status"].FirstOrDefault()??""; var sr = Context.Request.Query["search"].FirstOrDefault()??""; }
+
+    <div class="chips">
+        <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index" class="chip @(string.IsNullOrEmpty(st)?"active":"")">@DashboardResource.TotalTasks</a>
+        <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index" asp-route-status="pending" class="chip @(st=="pending"?"active":"")"><i class="bi bi-clock"></i> @DashboardResource.PendingTasks</a>
+        <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index" asp-route-status="completed" class="chip @(st=="completed"?"active":"")"><i class="bi bi-check-circle"></i> @DashboardResource.CompletedTasks</a>
+    </div>
+
+    <form method="get" class="row g-2 mb-4">
+        <div class="col-md-4"><input type="text" name="search" class="fctrl" placeholder="@DashboardResource.QuickSearch" value="@sr" /></div>
+        <div class="col-md-2">
+            <select name="status" class="fctrl">
+                <option value="">@DashboardResource.Status</option>
+                <option value="completed" selected="@(st=="completed")">@DashboardResource.Active</option>
+                <option value="pending" selected="@(st=="pending")">@DashboardResource.Inactive</option>
+            </select>
+        </div>
+        <div class="col-md-2"><button type="submit" class="btn-tf btn-tf-primary" style="padding:0.4rem 0.85rem;"><i class="bi bi-search"></i> @DashboardResource.QuickSearch</button></div>
+        <div class="col-md-2"><a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index" class="btn-tf btn-tf-ghost" style="padding:0.4rem 0.85rem;"><i class="bi bi-x-lg"></i> @DashboardResource.Cancel</a></div>
+    </form>
+
+    <div class="card-tf">
+        <div style="overflow-x:auto;">
+            <table class="table-tf">
+                <thead>
+                    <tr>
+                        <th>@ViewModelsResource.Title_Display</th>
+                        <th>@ViewModelsResource.DueDate_Display</th>
+                        <th>@ViewModelsResource.Priority_Display</th>
+                        <th>@ViewModelsResource.IsCompleted_Display</th>
+                        <th>@ViewModelsResource.Project_Display</th>
+                        <th>@ViewModelsResource.Status_Display</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="font-weight:500;">@item.Title</td>
+                                <td style="color:var(--tf-base-400);font-size:var(--tf-fs-xs);">@(item.DueDate?.ToString("MMM dd") ?? "—")</td>
+                                <td>
+                                    @{ var pc = item.Priority >= 4 ? "tag-red" : item.Priority >= 2 ? "tag-amber" : "tag-emerald"; }
+                                    <span class="tag @pc">@item.Priority</span>
+                                </td>
+                                <td>
+                                    @if (item.IsCompleted) { <span class="tag tag-emerald"><i class="bi bi-check-circle"></i> @DashboardResource.Active</span> }
+                                    else { <span class="tag tag-amber"><i class="bi bi-clock"></i> @DashboardResource.Inactive</span> }
+                                </td>
+                                <td style="color:var(--tf-base-500);font-size:var(--tf-fs-xs);">@item.ProjectName</td>
+                                <td><span class="tag tag-slate">@item.StatusName</span></td>
+                                <td class="row-acts">
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Edit" asp-route-id="@item.Guid" class="act-btn" title="@DashboardResource.Edit"><i class="bi bi-pencil"></i></a>
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="ToggleComplete" asp-route-id="@item.Guid" class="act-btn" title="Toggle"><i class="bi @(item.IsCompleted?"bi-x-circle":"bi-check2")"></i></a>
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Delete" asp-route-id="@item.Guid" class="act-btn danger swal-delete" title="@DashboardResource.Delete"><i class="bi bi-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="7"><div class="empty-tf"><div class="empty-icon"><i class="bi bi-inbox"></i></div><div class="empty-title">@DashboardResource.NoData</div><a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddTodo</a></div></td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.body.addEventListener('click', function(e){
+                var l=e.target.closest('.swal-delete'); if(!l) return; e.preventDefault();
+                Swal.fire({title:'@DashboardResource.AreYouSure',icon:'warning',showCancelButton:true,confirmButtonColor:'#ef4444',cancelButtonColor:'#059669',confirmButtonText:'@DashboardResource.YesDelete',cancelButtonText:'@DashboardResource.Cancel'})
+                .then(function(r){ if(r.isConfirmed) window.location.href=l.href; });
+            });
+            @if (TempData["ok"] != null) { <text>Swal.fire({icon:'success',confirmButtonColor:'#059669',title:'@Html.Raw(Json.Serialize(TempData["ok"]))'});</text> }
+            else if (TempData["Failed"] != null) { <text>Swal.fire({icon:'error',confirmButtonColor:'#059669',title:'@Html.Raw(Json.Serialize(TempData["Failed"]))'});</text> }
+        });
+    </script>
+}

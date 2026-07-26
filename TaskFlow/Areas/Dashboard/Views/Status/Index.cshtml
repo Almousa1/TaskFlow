@@ -1,0 +1,57 @@
+@model IEnumerable<StatusListItemVM>
+@{ ViewData["Title"] = DashboardResource.ManageStatuses; }
+
+<div class="fade-up">
+    <div class="section-hd">
+        <h5 class="title"><i class="bi bi-flag" style="color:var(--tf-accent);"></i> @DashboardResource.ManageStatuses</h5>
+        <div class="q-acts"><a asp-area="Dashboard" asp-controller="Status" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddStatus</a></div>
+    </div>
+    <div class="card-tf">
+        <table class="table-tf">
+            <thead>
+                <tr>
+                    <th>@ViewModelsResource.StatusNameEn_Display</th>
+                    <th>@ViewModelsResource.StatusNameAr_Display</th>
+                    <th>@DashboardResource.Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="font-weight:500;">@item.StatusName</td>
+                            <td style="color:var(--tf-base-500);font-size:var(--tf-fs-xs);">@item.StatusNameAr</td>
+                            <td>@if(item.Approved){<span class="tag tag-emerald"><i class="bi bi-check-circle"></i> @DashboardResource.ActiveStatus</span>}else{<span class="tag tag-red"><i class="bi bi-x-circle"></i> @DashboardResource.InactiveStatus</span>}</td>
+                            <td class="row-acts">
+                                <a asp-area="Dashboard" asp-controller="Status" asp-action="Edit" asp-route-id="@item.Guid" class="act-btn" title="@DashboardResource.Edit"><i class="bi bi-pencil"></i></a>
+                                <a asp-area="Dashboard" asp-controller="Status" asp-action="Delete" asp-route-id="@item.Guid" class="act-btn danger swal-delete" title="@DashboardResource.Delete"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><td colspan="4"><div class="empty-tf"><div class="empty-icon"><i class="bi bi-flag"></i></div><div class="empty-title">@DashboardResource.NoData</div><a asp-area="Dashboard" asp-controller="Status" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddStatus</a></div></td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.body.addEventListener('click', function(e){
+                var l=e.target.closest('.swal-delete'); if(!l) return; e.preventDefault();
+                Swal.fire({title:'@DashboardResource.AreYouSure',icon:'warning',showCancelButton:true,confirmButtonColor:'#ef4444',cancelButtonColor:'#059669',confirmButtonText:'@DashboardResource.YesDelete',cancelButtonText:'@DashboardResource.Cancel'})
+                .then(function(r){ if(r.isConfirmed) window.location.href=l.href; });
+            });
+            @if (TempData["ok"] != null) { <text>Swal.fire({icon:'success',confirmButtonColor:'#059669',title:'@Html.Raw(Json.Serialize(TempData["ok"]))'});</text> }
+            else if (TempData["Failed"] != null) { <text>Swal.fire({icon:'error',confirmButtonColor:'#059669',title:'@Html.Raw(Json.Serialize(TempData["Failed"]))'});</text> }
+        });
+    </script>
+}

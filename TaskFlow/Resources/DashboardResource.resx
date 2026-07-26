@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DashboardTitle" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="ManageTodos" xml:space="preserve"><value>Manage Tasks</value></data>
+  <data name="AddTodo" xml:space="preserve"><value>Add Task</value></data>
+  <data name="EditTodo" xml:space="preserve"><value>Edit Task</value></data>
+  <data name="DeleteTodo" xml:space="preserve"><value>Delete Task</value></data>
+  <data name="TodoList" xml:space="preserve"><value>Task List</value></data>
+  <data name="ViewDetails" xml:space="preserve"><value>View Details</value></data>
+  <data name="QuickSearch" xml:space="preserve"><value>Quick Search</value></data>
+  <data name="Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Edit" xml:space="preserve"><value>Edit</value></data>
+  <data name="Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="Details" xml:space="preserve"><value>Details</value></data>
+  <data name="Active" xml:space="preserve"><value>Active</value></data>
+  <data name="Inactive" xml:space="preserve"><value>Inactive</value></data>
+  <data name="NoData" xml:space="preserve"><value>No data available</value></data>
+  <data name="AreYouSure" xml:space="preserve"><value>Are you sure?</value></data>
+  <data name="YesDelete" xml:space="preserve"><value>Yes, delete it</value></data>
+  <data name="TodoInsertSuccess" xml:space="preserve"><value>Task created successfully</value></data>
+  <data name="TodoInsertFailed" xml:space="preserve"><value>Failed to create task</value></data>
+  <data name="TodoUpdateSuccess" xml:space="preserve"><value>Task updated successfully</value></data>
+  <data name="TodoUpdateFailed" xml:space="preserve"><value>Failed to update task</value></data>
+  <data name="TodoDeleteSuccess" xml:space="preserve"><value>Task deleted successfully</value></data>
+  <data name="TodoDeleteFailed" xml:space="preserve"><value>Failed to delete task</value></data>
+  <data name="ManageProjects" xml:space="preserve"><value>Manage Projects</value></data>
+  <data name="AddProject" xml:space="preserve"><value>Add Project</value></data>
+  <data name="EditProject" xml:space="preserve"><value>Edit Project</value></data>
+  <data name="DeleteProject" xml:space="preserve"><value>Delete Project</value></data>
+  <data name="ProjectInsertSuccess" xml:space="preserve"><value>Project created successfully</value></data>
+  <data name="ProjectInsertFailed" xml:space="preserve"><value>Failed to create project</value></data>
+  <data name="ProjectUpdateSuccess" xml:space="preserve"><value>Project updated successfully</value></data>
+  <data name="ProjectUpdateFailed" xml:space="preserve"><value>Failed to update project</value></data>
+  <data name="ProjectDeleteSuccess" xml:space="preserve"><value>Project deleted successfully</value></data>
+  <data name="ProjectDeleteFailed" xml:space="preserve"><value>Failed to delete project</value></data>
+  <data name="ManageCategories" xml:space="preserve"><value>Manage Categories</value></data>
+  <data name="AddCategory" xml:space="preserve"><value>Add Category</value></data>
+  <data name="EditCategory" xml:space="preserve"><value>Edit Category</value></data>
+  <data name="DeleteCategory" xml:space="preserve"><value>Delete Category</value></data>
+  <data name="CategoryInsertSuccess" xml:space="preserve"><value>Category created successfully</value></data>
+  <data name="CategoryInsertFailed" xml:space="preserve"><value>Failed to create category</value></data>
+  <data name="CategoryUpdateSuccess" xml:space="preserve"><value>Category updated successfully</value></data>
+  <data name="CategoryUpdateFailed" xml:space="preserve"><value>Failed to update category</value></data>
+  <data name="CategoryDeleteSuccess" xml:space="preserve"><value>Category deleted successfully</value></data>
+  <data name="CategoryDeleteFailed" xml:space="preserve"><value>Failed to delete category</value></data>
+  <data name="ManageStatuses" xml:space="preserve"><value>Manage Statuses</value></data>
+  <data name="AddStatus" xml:space="preserve"><value>Add Status</value></data>
+  <data name="EditStatus" xml:space="preserve"><value>Edit Status</value></data>
+  <data name="DeleteStatus" xml:space="preserve"><value>Delete Status</value></data>
+  <data name="StatusInsertSuccess" xml:space="preserve"><value>Status created successfully</value></data>
+  <data name="StatusInsertFailed" xml:space="preserve"><value>Failed to create status</value></data>
+  <data name="StatusUpdateSuccess" xml:space="preserve"><value>Status updated successfully</value></data>
+  <data name="StatusUpdateFailed" xml:space="preserve"><value>Failed to update status</value></data>
+  <data name="StatusDeleteSuccess" xml:space="preserve"><value>Status deleted successfully</value></data>
+  <data name="StatusDeleteFailed" xml:space="preserve"><value>Failed to delete status</value></data>
+  <data name="StatusAlreadyExists" xml:space="preserve"><value>Status already exists</value></data>
+  <data name="StatusInUseCannotDelete" xml:space="preserve"><value>Status is in use and cannot be deleted</value></data>
+  <data name="TotalTasks" xml:space="preserve"><value>Total Tasks</value></data>
+  <data name="CompletedTasks" xml:space="preserve"><value>Completed</value></data>
+  <data name="PendingTasks" xml:space="preserve"><value>Pending</value></data>
+  <data name="OverdueTasks" xml:space="preserve"><value>Overdue</value></data>
+  <data name="WelcomeMessage" xml:space="preserve"><value>Welcome</value></data>
+  <data name="Logout" xml:space="preserve"><value>Logout</value></data>
+  <data name="ManageUserRoles" xml:space="preserve"><value>Manage Roles</value></data>
+  <data name="AddRole" xml:space="preserve"><value>Add Role</value></data>
+  <data name="EditRole" xml:space="preserve"><value>Edit Role</value></data>
+  <data name="DeleteRole" xml:space="preserve"><value>Delete Role</value></data>
+  <data name="RoleInsertSuccess" xml:space="preserve"><value>Role created successfully</value></data>
+  <data name="RoleInsertFailed" xml:space="preserve"><value>Failed to create role</value></data>
+  <data name="RoleUpdateSuccess" xml:space="preserve"><value>Role updated successfully</value></data>
+  <data name="RoleUpdateFailed" xml:space="preserve"><value>Failed to update role</value></data>
+  <data name="RoleDeleteSuccess" xml:space="preserve"><value>Role deleted successfully</value></data>
+  <data name="RoleDeleteFailed" xml:space="preserve"><value>Failed to delete role</value></data>
+  <data name="RoleNameExists" xml:space="preserve"><value>Role name already exists</value></data>
+  <data name="InUse" xml:space="preserve"><value>This item is in use and cannot be deleted</value></data>
+  <data name="Users" xml:space="preserve"><value>Users</value></data>
+  <data name="ManageUsers" xml:space="preserve"><value>Manage Users</value></data>
+  <data name="AddUser" xml:space="preserve"><value>Add User</value></data>
+  <data name="EditUser" xml:space="preserve"><value>Edit User</value></data>
+  <data name="DeleteUser" xml:space="preserve"><value>Delete User</value></data>
+  <data name="UserInsertSuccess" xml:space="preserve"><value>User created successfully</value></data>
+  <data name="UserInsertFailed" xml:space="preserve"><value>Failed to create user</value></data>
+  <data name="UserUpdateSuccess" xml:space="preserve"><value>User updated successfully</value></data>
+  <data name="UserUpdateFailed" xml:space="preserve"><value>Failed to update user</value></data>
+  <data name="UserDeleteSuccess" xml:space="preserve"><value>User deleted successfully</value></data>
+  <data name="UserDeleteFailed" xml:space="preserve"><value>Failed to delete user</value></data>
+  <data name="UserNotFound" xml:space="preserve"><value>User not found</value></data>
+  <data name="Confirminsert" xml:space="preserve"><value>Confirm Save</value></data>
+  <data name="insertItem" xml:space="preserve"><value>Are you sure you want to save?</value></data>
+  <data name="Yes" xml:space="preserve"><value>Yes</value></data>
+  <data name="Confirmed" xml:space="preserve"><value>OK</value></data>
+  <data name="ConfirmUpdateStatus" xml:space="preserve"><value>Are you sure you want to update?</value></data>
+  <data name="YesUpdateStatus" xml:space="preserve"><value>Yes, update it</value></data>
+  <data name="StatusName" xml:space="preserve"><value>Status Name</value></data>
+  <data name="StatusNameAr" xml:space="preserve"><value>Status Name (Arabic)</value></data>
+  <data name="Status" xml:space="preserve"><value>Status</value></data>
+  <data name="ActiveStatus" xml:space="preserve"><value>Active</value></data>
+  <data name="InactiveStatus" xml:space="preserve"><value>Inactive</value></data>
+  <data name="NoStatusesAvailable" xml:space="preserve"><value>No statuses available</value></data>
+  <data name="WelcomeToTaskFlow" xml:space="preserve"><value>Welcome to TaskFlow</value></data>
+  <data name="TaskFlowDescription" xml:space="preserve"><value>Manage your tasks efficiently</value></data>
+  <data name="GetStarted" xml:space="preserve"><value>Get Started</value></data>
+</root>

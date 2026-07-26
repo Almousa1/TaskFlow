@@ -1,0 +1,96 @@
+@{
+    var isRTL = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    var lang = System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var cp = Context.Request.Path;
+}
+<!DOCTYPE html>
+<html lang="@lang" dir="@(isRTL ? "rtl" : "ltr")">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] — TaskFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/taskflow.css" />
+    <style>body{overflow-x:hidden}</style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar-tf">
+        <a asp-area="Dashboard" asp-controller="Dashboard" asp-action="Index" class="brand">
+            <i class="bi bi-check2-square"></i> TaskFlow
+        </a>
+        <div class="nav-area">
+            <a asp-area="Dashboard" asp-controller="Dashboard" asp-action="Index"
+               class="nav-item @(cp.StartsWithSegments("/Dashboard/Dashboard") ? "active" : "")">
+                <i class="bi bi-grid"></i> @DashboardResource.DashboardTitle
+            </a>
+            <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index"
+               class="nav-item @(cp.StartsWithSegments("/Dashboard/TodoItem") ? "active" : "")">
+                <i class="bi bi-list-task"></i> @DashboardResource.ManageTodos
+            </a>
+            <a asp-area="Dashboard" asp-controller="Project" asp-action="Index"
+               class="nav-item @(cp.StartsWithSegments("/Dashboard/Project") ? "active" : "")">
+                <i class="bi bi-folder"></i> @DashboardResource.ManageProjects
+            </a>
+            <a asp-area="Dashboard" asp-controller="Category" asp-action="Index"
+               class="nav-item @(cp.StartsWithSegments("/Dashboard/Category") ? "active" : "")">
+                <i class="bi bi-tags"></i> @DashboardResource.ManageCategories
+            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="nav-section-label">@DashboardResource.ManageStatuses</div>
+                <a asp-area="Dashboard" asp-controller="Status" asp-action="Index"
+                   class="nav-item @(cp.StartsWithSegments("/Dashboard/Status") ? "active" : "")">
+                    <i class="bi bi-info-circle"></i> @DashboardResource.ManageStatuses
+                </a>
+                <a asp-area="Dashboard" asp-controller="UserRole" asp-action="Index"
+                   class="nav-item @(cp.StartsWithSegments("/Dashboard/UserRole") ? "active" : "")">
+                    <i class="bi bi-shield-lock"></i> @DashboardResource.ManageUserRoles
+                </a>
+            }
+        </div>
+        <form id="lf" asp-area="Auth" asp-controller="Login" asp-action="Logout" method="post" class="d-none">@Html.AntiForgeryToken()</form>
+        <div class="logout-area">
+            <a href="javascript:document.getElementById('lf').submit()" class="nav-item" style="color:var(--tf-base-500);">
+                <i class="bi bi-box-arrow-left"></i> @DashboardResource.Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <div class="main-tf">
+        <header class="header-tf">
+            <div class="h-left">
+                <button class="menu-btn" id="menuToggle"><i class="bi bi-list"></i></button>
+                <h1 class="page-label">@ViewData["Title"]</h1>
+            </div>
+            <div class="h-right">
+                <a asp-area="" asp-controller="Language" asp-action="Set"
+                   asp-route-culture="@(isRTL ? "en" : "ar")"
+                   asp-route-returnUrl="@cp"
+                   class="btn-tf btn-tf-ghost" style="padding:0.3rem 0.6rem;font-size:var(--tf-fs-xs);">
+                    <i class="bi bi-translate"></i> @(isRTL ? "EN" : "AR")
+                </a>
+                <span class="user-chip"><i class="bi bi-person"></i> @User.Identity?.Name</span>
+            </div>
+        </header>
+        <div class="page-tf">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menuToggle')?.addEventListener('click', function(){ document.body.classList.toggle('sidebar-closed'); });
+        // animated counters
+        document.querySelectorAll('.stat-counter').forEach(function(e){
+            var t = parseInt(e.dataset.target)||0, d = 700, s = performance.now();
+            function u(n){ var p = Math.min((n-s)/d,1), v = Math.floor((1-Math.pow(1-p,3))*t); e.textContent=v; if(p<1) requestAnimationFrame(u); else e.textContent=t; }
+            requestAnimationFrame(u);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DashboardTitle" xml:space="preserve"><value>لوحة التحكم</value></data>
+  <data name="ManageTodos" xml:space="preserve"><value>إدارة المهام</value></data>
+  <data name="AddTodo" xml:space="preserve"><value>إضافة مهمة</value></data>
+  <data name="EditTodo" xml:space="preserve"><value>تعديل المهمة</value></data>
+  <data name="DeleteTodo" xml:space="preserve"><value>حذف المهمة</value></data>
+  <data name="TodoList" xml:space="preserve"><value>قائمة المهام</value></data>
+  <data name="ViewDetails" xml:space="preserve"><value>عرض التفاصيل</value></data>
+  <data name="QuickSearch" xml:space="preserve"><value>بحث سريع</value></data>
+  <data name="Actions" xml:space="preserve"><value>الإجراءات</value></data>
+  <data name="Save" xml:space="preserve"><value>حفظ</value></data>
+  <data name="Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Edit" xml:space="preserve"><value>تعديل</value></data>
+  <data name="Delete" xml:space="preserve"><value>حذف</value></data>
+  <data name="Details" xml:space="preserve"><value>التفاصيل</value></data>
+  <data name="Active" xml:space="preserve"><value>نشط</value></data>
+  <data name="Inactive" xml:space="preserve"><value>غير نشط</value></data>
+  <data name="NoData" xml:space="preserve"><value>لا توجد بيانات</value></data>
+  <data name="AreYouSure" xml:space="preserve"><value>هل أنت متأكد؟</value></data>
+  <data name="YesDelete" xml:space="preserve"><value>نعم، احذف</value></data>
+  <data name="TodoInsertSuccess" xml:space="preserve"><value>تم إنشاء المهمة بنجاح</value></data>
+  <data name="TodoInsertFailed" xml:space="preserve"><value>فشل إنشاء المهمة</value></data>
+  <data name="TodoUpdateSuccess" xml:space="preserve"><value>تم تحديث المهمة بنجاح</value></data>
+  <data name="TodoUpdateFailed" xml:space="preserve"><value>فشل تحديث المهمة</value></data>
+  <data name="TodoDeleteSuccess" xml:space="preserve"><value>تم حذف المهمة بنجاح</value></data>
+  <data name="TodoDeleteFailed" xml:space="preserve"><value>فشل حذف المهمة</value></data>
+  <data name="ManageProjects" xml:space="preserve"><value>إدارة المشاريع</value></data>
+  <data name="AddProject" xml:space="preserve"><value>إضافة مشروع</value></data>
+  <data name="EditProject" xml:space="preserve"><value>تعديل المشروع</value></data>
+  <data name="DeleteProject" xml:space="preserve"><value>حذف المشروع</value></data>
+  <data name="ProjectInsertSuccess" xml:space="preserve"><value>تم إنشاء المشروع بنجاح</value></data>
+  <data name="ProjectInsertFailed" xml:space="preserve"><value>فشل إنشاء المشروع</value></data>
+  <data name="ProjectUpdateSuccess" xml:space="preserve"><value>تم تحديث المشروع بنجاح</value></data>
+  <data name="ProjectUpdateFailed" xml:space="preserve"><value>فشل تحديث المشروع</value></data>
+  <data name="ProjectDeleteSuccess" xml:space="preserve"><value>تم حذف المشروع بنجاح</value></data>
+  <data name="ProjectDeleteFailed" xml:space="preserve"><value>فشل حذف المشروع</value></data>
+  <data name="ManageCategories" xml:space="preserve"><value>إدارة التصنيفات</value></data>
+  <data name="AddCategory" xml:space="preserve"><value>إضافة تصنيف</value></data>
+  <data name="EditCategory" xml:space="preserve"><value>تعديل التصنيف</value></data>
+  <data name="DeleteCategory" xml:space="preserve"><value>حذف التصنيف</value></data>
+  <data name="CategoryInsertSuccess" xml:space="preserve"><value>تم إنشاء التصنيف بنجاح</value></data>
+  <data name="CategoryInsertFailed" xml:space="preserve"><value>فشل إنشاء التصنيف</value></data>
+  <data name="CategoryUpdateSuccess" xml:space="preserve"><value>تم تحديث التصنيف بنجاح</value></data>
+  <data name="CategoryUpdateFailed" xml:space="preserve"><value>فشل تحديث التصنيف</value></data>
+  <data name="CategoryDeleteSuccess" xml:space="preserve"><value>تم حذف التصنيف بنجاح</value></data>
+  <data name="CategoryDeleteFailed" xml:space="preserve"><value>فشل حذف التصنيف</value></data>
+  <data name="ManageStatuses" xml:space="preserve"><value>إدارة الحالات</value></data>
+  <data name="AddStatus" xml:space="preserve"><value>إضافة حالة</value></data>
+  <data name="EditStatus" xml:space="preserve"><value>تعديل الحالة</value></data>
+  <data name="DeleteStatus" xml:space="preserve"><value>حذف الحالة</value></data>
+  <data name="StatusInsertSuccess" xml:space="preserve"><value>تم إنشاء الحالة بنجاح</value></data>
+  <data name="StatusInsertFailed" xml:space="preserve"><value>فشل إنشاء الحالة</value></data>
+  <data name="StatusUpdateSuccess" xml:space="preserve"><value>تم تحديث الحالة بنجاح</value></data>
+  <data name="StatusUpdateFailed" xml:space="preserve"><value>فشل تحديث الحالة</value></data>
+  <data name="StatusDeleteSuccess" xml:space="preserve"><value>تم حذف الحالة بنجاح</value></data>
+  <data name="StatusDeleteFailed" xml:space="preserve"><value>فشل حذف الحالة</value></data>
+  <data name="StatusAlreadyExists" xml:space="preserve"><value>الحالة موجودة بالفعل</value></data>
+  <data name="StatusInUseCannotDelete" xml:space="preserve"><value>هذه الحالة قيد الاستخدام ولا يمكن حذفها</value></data>
+  <data name="TotalTasks" xml:space="preserve"><value>إجمالي المهام</value></data>
+  <data name="CompletedTasks" xml:space="preserve"><value>مكتمل</value></data>
+  <data name="PendingTasks" xml:space="preserve"><value>معلق</value></data>
+  <data name="OverdueTasks" xml:space="preserve"><value>متأخر</value></data>
+  <data name="WelcomeMessage" xml:space="preserve"><value>مرحباً</value></data>
+  <data name="Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
+  <data name="ManageUserRoles" xml:space="preserve"><value>إدارة الصلاحيات</value></data>
+  <data name="AddRole" xml:space="preserve"><value>إضافة صلاحية</value></data>
+  <data name="EditRole" xml:space="preserve"><value>تعديل الصلاحية</value></data>
+  <data name="DeleteRole" xml:space="preserve"><value>حذف الصلاحية</value></data>
+  <data name="RoleInsertSuccess" xml:space="preserve"><value>تم إنشاء الصلاحية بنجاح</value></data>
+  <data name="RoleInsertFailed" xml:space="preserve"><value>فشل إنشاء الصلاحية</value></data>
+  <data name="RoleUpdateSuccess" xml:space="preserve"><value>تم تحديث الصلاحية بنجاح</value></data>
+  <data name="RoleUpdateFailed" xml:space="preserve"><value>فشل تحديث الصلاحية</value></data>
+  <data name="RoleDeleteSuccess" xml:space="preserve"><value>تم حذف الصلاحية بنجاح</value></data>
+  <data name="RoleDeleteFailed" xml:space="preserve"><value>فشل حذف الصلاحية</value></data>
+  <data name="RoleNameExists" xml:space="preserve"><value>اسم الصلاحية موجود بالفعل</value></data>
+  <data name="InUse" xml:space="preserve"><value>هذا العنصر قيد الاستخدام ولا يمكن حذفه</value></data>
+  <data name="Users" xml:space="preserve"><value>المستخدمون</value></data>
+  <data name="ManageUsers" xml:space="preserve"><value>إدارة المستخدمين</value></data>
+  <data name="AddUser" xml:space="preserve"><value>إضافة مستخدم</value></data>
+  <data name="EditUser" xml:space="preserve"><value>تعديل المستخدم</value></data>
+  <data name="DeleteUser" xml:space="preserve"><value>حذف المستخدم</value></data>
+  <data name="UserInsertSuccess" xml:space="preserve"><value>تم إنشاء المستخدم بنجاح</value></data>
+  <data name="UserInsertFailed" xml:space="preserve"><value>فشل إنشاء المستخدم</value></data>
+  <data name="UserUpdateSuccess" xml:space="preserve"><value>تم تحديث المستخدم بنجاح</value></data>
+  <data name="UserUpdateFailed" xml:space="preserve"><value>فشل تحديث المستخدم</value></data>
+  <data name="UserDeleteSuccess" xml:space="preserve"><value>تم حذف المستخدم بنجاح</value></data>
+  <data name="UserDeleteFailed" xml:space="preserve"><value>فشل حذف المستخدم</value></data>
+  <data name="UserNotFound" xml:space="preserve"><value>المستخدم غير موجود</value></data>
+  <data name="Confirminsert" xml:space="preserve"><value>تأكيد الحفظ</value></data>
+  <data name="insertItem" xml:space="preserve"><value>هل أنت متأكد من الحفظ؟</value></data>
+  <data name="Yes" xml:space="preserve"><value>نعم</value></data>
+  <data name="Confirmed" xml:space="preserve"><value>تم</value></data>
+  <data name="ConfirmUpdateStatus" xml:space="preserve"><value>هل أنت متأكد من التحديث؟</value></data>
+  <data name="YesUpdateStatus" xml:space="preserve"><value>نعم، تحديث</value></data>
+  <data name="StatusName" xml:space="preserve"><value>اسم الحالة</value></data>
+  <data name="StatusNameAr" xml:space="preserve"><value>اسم الحالة (بالعربية)</value></data>
+  <data name="Status" xml:space="preserve"><value>الحالة</value></data>
+  <data name="ActiveStatus" xml:space="preserve"><value>نشط</value></data>
+  <data name="InactiveStatus" xml:space="preserve"><value>غير نشط</value></data>
+  <data name="NoStatusesAvailable" xml:space="preserve"><value>لا توجد حالات متاحة</value></data>
+  <data name="WelcomeToTaskFlow" xml:space="preserve"><value>مرحباً بك في تاسك فلو</value></data>
+  <data name="TaskFlowDescription" xml:space="preserve"><value>إدارة مهامك بكفاءة</value></data>
+  <data name="GetStarted" xml:space="preserve"><value>ابدأ الآن</value></data>
+</root>

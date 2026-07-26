@@ -1,0 +1,135 @@
+@model DashboardVM
+@{ ViewData["Title"] = DashboardResource.DashboardTitle; }
+
+<div class="fade-up">
+    <div class="section-hd">
+        <h5 class="title">
+            <i class="bi bi-grid" style="color:var(--tf-accent);"></i>
+            @DashboardResource.DashboardTitle
+            <span class="pulse"></span>
+        </h5>
+        <div class="q-acts">
+            <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddTodo</a>
+            <a asp-area="Dashboard" asp-controller="Project" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddProject</a>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row g-3 mb-5">
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-tf">
+                <div class="stat-row">
+                    <div class="stat-info">
+                        <div class="stat-label">@DashboardResource.TotalTasks</div>
+                        <div class="stat-value stat-counter" data-target="@Model.TotalTasks">0</div>
+                    </div>
+                    <span class="stat-dot" style="background:var(--tf-accent);"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-tf">
+                <div class="stat-row">
+                    <div class="stat-info">
+                        <div class="stat-label">@DashboardResource.CompletedTasks</div>
+                        <div class="stat-value stat-counter" data-target="@Model.CompletedTasks">0</div>
+                    </div>
+                    <span class="stat-dot" style="background:var(--tf-accent);"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-tf">
+                <div class="stat-row">
+                    <div class="stat-info">
+                        <div class="stat-label">@DashboardResource.PendingTasks</div>
+                        <div class="stat-value stat-counter" data-target="@Model.PendingTasks">0</div>
+                    </div>
+                    <span class="stat-dot" style="background:var(--tf-amber);"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="stat-tf">
+                <div class="stat-row">
+                    <div class="stat-info">
+                        <div class="stat-label">@DashboardResource.OverdueTasks</div>
+                        <div class="stat-value stat-counter" data-target="@Model.OverdueTasks">0</div>
+                    </div>
+                    <span class="stat-dot" style="background:var(--tf-red);"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent -->
+    @if (Model.RecentTasks != null && Model.RecentTasks.Any())
+    {
+        <div class="card-tf">
+            <div class="card-hd">
+                <h5><i class="bi bi-clock-history" style="color:var(--tf-accent);"></i> @DashboardResource.TodoList</h5>
+                <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Index" class="q-act" style="padding:0.25rem 0.6rem;">
+                    @DashboardResource.ManageTodos <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="table-tf">
+                    <thead>
+                        <tr>
+                            <th>@ViewModelsResource.Title_Display</th>
+                            <th>@ViewModelsResource.DueDate_Display</th>
+                            <th>@ViewModelsResource.Priority_Display</th>
+                            <th>@ViewModelsResource.Project_Display</th>
+                            <th>@ViewModelsResource.Status_Display</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var t in Model.RecentTasks)
+                        {
+                            <tr>
+                                <td style="font-weight:500;">@t.Title</td>
+                                <td style="color:var(--tf-base-400);font-size:var(--tf-fs-xs);">@(t.DueDate?.ToString("MMM dd") ?? "—")</td>
+                                <td>
+                                    @{ var pc = t.Priority >= 4 ? "tag-red" : t.Priority >= 2 ? "tag-amber" : "tag-emerald"; }
+                                    <span class="tag @pc">@t.Priority</span>
+                                </td>
+                                <td style="color:var(--tf-base-500);font-size:var(--tf-fs-xs);">@t.ProjectName</td>
+                                <td><span class="tag tag-slate">@t.StatusName</span></td>
+                                <td class="row-acts">
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Edit" asp-route-id="@t.Guid" class="act-btn" title="@DashboardResource.Edit"><i class="bi bi-pencil"></i></a>
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="ToggleComplete" asp-route-id="@t.Guid" class="act-btn" title="Toggle"><i class="bi bi-check2"></i></a>
+                                    <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Delete" asp-route-id="@t.Guid" class="act-btn danger swal-delete" title="@DashboardResource.Delete"><i class="bi bi-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card-tf">
+            <div class="empty-tf">
+                <div class="empty-icon"><i class="bi bi-inbox"></i></div>
+                <div class="empty-title">@DashboardResource.NoData</div>
+                <div class="empty-desc">@DashboardResource.TaskFlowDescription</div>
+                <a asp-area="Dashboard" asp-controller="TodoItem" asp-action="Create" class="q-act"><i class="bi bi-plus-lg"></i> @DashboardResource.AddTodo</a>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            document.body.addEventListener('click', function(e){
+                var l = e.target.closest('.swal-delete');
+                if(!l) return; e.preventDefault();
+                Swal.fire({title:'@DashboardResource.AreYouSure',icon:'warning',showCancelButton:true,confirmButtonColor:'#ef4444',cancelButtonColor:'#059669',confirmButtonText:'@DashboardResource.YesDelete',cancelButtonText:'@DashboardResource.Cancel'})
+                .then(function(r){ if(r.isConfirmed) window.location.href = l.href; });
+            });
+        });
+    </script>
+}
